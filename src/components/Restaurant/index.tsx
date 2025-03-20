@@ -10,9 +10,6 @@ type Props = {
 };
 
 const Restaurant = ({ title, image, text, children }: Props) => {
-  const alertTest = () => {
-    alert("teste");
-  };
 
   return (
     <div className="container ">
@@ -27,7 +24,7 @@ const Restaurant = ({ title, image, text, children }: Props) => {
           </S.FlexAval>
         </S.Flex>
         <S.Text>{text}</S.Text>
-        <S.Button onClick={alertTest}>Saiba Mais</S.Button>
+        <S.Button to={'/profile'}>Saiba Mais</S.Button>
       </S.Card>
     </div>
   );

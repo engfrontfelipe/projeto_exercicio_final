@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../style";
+import { Link } from "react-router-dom";
 
 export const Card = styled.div`
   padding: 8px 8px;
@@ -23,7 +24,7 @@ export const Text = styled.p`
   font-size: 14px;
   margin-bottom: 16px;
 `;
-export const Button = styled.button`
+export const Button = styled(Link)`
   padding: 4px 6px;
   color: ${colors.background};
   background-color: ${colors.pink};
