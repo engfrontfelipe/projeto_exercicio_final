@@ -6,23 +6,30 @@ type Props = {
   title: string;
   image: string;
   text: string;
-  children: string;
+  val: string;
+  tag: string;
+  tagTwo?: string;
 };
 
-const Restaurant = ({ title, image, text, children }: Props) => {
-
+const Restaurant = ({ title, image, text, tag, tagTwo, val }: Props) => {
   return (
     <div className="container ">
       <S.Card>
-        <TagContainer children={children} />
+        <S.DivFlex>
+          {tagTwo && <TagContainer>{tagTwo}</TagContainer>}
+          {tag && <TagContainer>{tag}</TagContainer>}
+        </S.DivFlex>
+
         <S.Img src={image} alt="Comida japonesa" />
+        
         <S.Flex>
-          <S.Title>{title} </S.Title>
+          <S.Title>{title}</S.Title>
           <S.FlexAval>
-            <S.Aval>4.6</S.Aval>
+            <S.Aval>{val}</S.Aval>
             <S.Star src={star} alt="Estrela" />
           </S.FlexAval>
         </S.Flex>
+
         <S.Text>{text}</S.Text>
         <S.Button to={'/profile'}>Saiba Mais</S.Button>
       </S.Card>

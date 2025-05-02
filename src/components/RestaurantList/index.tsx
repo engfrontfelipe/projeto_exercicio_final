@@ -11,7 +11,9 @@ export const models: ModelRest[] = [
     text: "Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!",
     image: hioki,
     id: 1,
-    children: "Japonesa",
+    tag: "Japonesa",
+    tagTwo: "Destaque da Semana",
+    val: "4.9"
   },
 
   {
@@ -19,23 +21,32 @@ export const models: ModelRest[] = [
     text: "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
     image: laDoce,
     id: 2,
-    children: "Italiana",
+    tag: "Italiana",
+    val: "4.6"
+
+    
   },
 
+
   {
-    title: "Hioki Sushi ",
-    text: "Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!",
-    image: hioki,
+    title: "La Dolce Vita Trattoria",
+    text: "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
+    image: laDoce,
     id: 3,
-    children: "Japonesa",
+    tag: "Italiana",
+    val: "4.6"
+
   },
+
 
   {
     title: "La Dolce Vita Trattoria",
     text: "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
     image: laDoce,
     id: 4,
-    children: "Italiana",
+    tag: "Italiana",
+    val: "4.6"
+
   },
 
   {
@@ -43,16 +54,21 @@ export const models: ModelRest[] = [
     text: "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
     image: laDoce,
     id: 5,
-    children: "Italiana",
+    tag: "Italiana",
+    val: "4.6"
+
   },
 
   {
-    title: "Hioki Sushi ",
-    text: "Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!",
-    image: hioki,
-    id: 1,
-    children: "Japonesa",
+    title: "La Dolce Vita Trattoria",
+    text: "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
+    image: laDoce,
+    id: 6,
+    tag: "Italiana",
+    val: "4.6"
+
   },
+
 ];
 
 const RestaurantList = () => {
@@ -65,7 +81,9 @@ const RestaurantList = () => {
               title={model.title}
               text={model.text}
               image={model.image}
-              children={model.children}
+              tagTwo= {model.tagTwo}
+              tag={model.tag}
+              val= {model.val}
             />
           </li>
         ))}

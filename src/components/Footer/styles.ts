@@ -4,7 +4,9 @@ import { colors } from "../../style";
 export const FooterContainer = styled.footer`
   text-align: center;
   padding: 40px 0;
+  height: 298px;
   background-color: ${colors.pinkFooter};
+  margin-top: 120px;
 `;
 
 export const Ul = styled.ul`
@@ -19,4 +21,9 @@ export const Ul = styled.ul`
   }
 `;
 
+export const P = styled.p`
+  width: 780px;
+  text-align: center;
+  margin: 0 auto;
+`
 export const ImgLogo = styled.img``;

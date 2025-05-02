@@ -6,7 +6,6 @@ export type Props = {
   modelHeader: "HeaderMin" | "HeaderMax";
 };
 export const ImgHeader = styled.div<Omit<Props, "textHeader" | "logoHeader">>`
-  margin-top: 24px;
   width: 100%;
   height: ${(props) => (props.modelHeader === "HeaderMax" ? "380px" : "186px")};
   display: flex;
@@ -40,12 +39,12 @@ export const Title = styled.h1<Props>`
   font-size: 36px;
   display: ${(props) => (props.modelHeader === "HeaderMax" ? "flex" : "none")};
   margin-bottom: 40px;
-  width: 540px;
+  width: 580px;
 `;
 
 export const LinkHeader = styled(Link)<Props>`
-  font-weight: bold;
+  font-weight: 900;
   display: ${(props) => (props.modelHeader === "HeaderMin" ? "flex" : "none")};
-  width: 90px;
+  width: 180px;
   padding-bottom: 80px;
 `;

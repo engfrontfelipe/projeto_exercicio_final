@@ -24,7 +24,7 @@ const Header = ({ modelHeader }: Props) => (
           0 produto(s) no carrinho 
         </S.LinkHeader>
         <S.Title modelHeader={modelHeader}>
-          Viva experiências gastronômicasno conforto da sua casa
+          Viva experiências gastronômicas no conforto da sua casa
         </S.Title>
       </div>
     </S.ImgHeader>

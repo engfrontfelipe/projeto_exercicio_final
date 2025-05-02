@@ -3,20 +3,27 @@ class ModelRest {
   text: string;
   image: string;
   id: number;
-  children: string;
+  tag: string;
+  val: string;
+  tagTwo?: string;
 
   constructor(
     title: string,
     text: string,
     image: string,
     id: number,
-    children: string,
+    tag: string,
+    tagTwo: string,
+    val: string,
+
   ) {
     this.title = title;
     this.text = text;
     this.image = image;
     this.id = id;
-    this.children = children;
+    this.tag = tag;
+    this.tagTwo = tagTwo
+    this.val = val
   }
 }
 
