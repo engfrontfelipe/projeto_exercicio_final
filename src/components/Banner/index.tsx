@@ -6,6 +6,7 @@ import { ImgBack, Subtitle, Title } from "./styles";
 type Restaurante = {
   titulo: string;
   tipo: string;
+  capa: string;
 };
 
 const Banner = () => {
@@ -20,7 +21,7 @@ const Banner = () => {
         );
         if (!response.ok) throw new Error("Erro ao buscar restaurante");
         const data = await response.json();
-        setRestaurante({ titulo: data.titulo, tipo: data.tipo });
+        setRestaurante({ titulo: data.titulo, tipo: data.tipo, capa: data.capa});
       } catch (error) {
         console.error("Erro ao carregar restaurante:", error);
       }
@@ -30,7 +31,7 @@ const Banner = () => {
   }, [id]);
 
   return (
-    <ImgBack style={{ backgroundImage: `url(${banner})` }}>
+    <ImgBack style={{ backgroundImage: `url(${restaurante?.capa})` }}>
       <div className="container">
         <Subtitle>{restaurante?.tipo}</Subtitle>
         <Title>{restaurante?.titulo}</Title>

@@ -7,12 +7,17 @@ export const Card = styled.div`
   background-color: ${colors.white};
   margin: 32px 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
+
 
 export const Img = styled.img`
   width: 100%;
   height: 300px;
   display: block;
+  object-fit: cover;
 `;
 
 export const Title = styled.h2`
@@ -37,10 +42,10 @@ export const Button = styled(Link)`
   background-color: ${colors.pink};
   font-weight: 700;
   font-size: 14px;
-  margin-bottom: 8px;
   margin: 0 8px;
   border: none;
   cursor: pointer;
+
 `;
 
 export const Flex = styled.div`
@@ -79,4 +84,5 @@ export const DivBorder = styled.div`
   padding-bottom: 10px;
   border: 1px solid #e66767;
   border-top: none;
+  height: 180px;
 `;
