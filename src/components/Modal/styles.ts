@@ -12,7 +12,6 @@ export const Overlay = styled.div`
   justify-content: center;
   z-index: 1000;
 `;
-
 export const ModalContent = styled.div`
   background: #e66767;
   color: white;
@@ -21,12 +20,24 @@ export const ModalContent = styled.div`
   height: 344px;
   position: relative;
   display: flex;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  animation: fadeIn 0.6s forwards;
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
+
 
 export const CloseButton = styled.button`
   position: absolute;
   bottom: 315px;
-  right: 4px;
+  right: 12px;
   color: white;
   background-color: transparent;
   border: none;
