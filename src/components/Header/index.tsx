@@ -21,7 +21,7 @@ const Header = ({ modelHeader }: Props) => (
           alt="logo do estabelecimento"
         />
         <S.LinkHeader to={"/"} modelHeader={modelHeader}>
-          0 produto(s) no carrinho 
+          0 produto(s) no carrinho
         </S.LinkHeader>
         <S.Title modelHeader={modelHeader}>
           Viva experiências gastronômicas no conforto da sua casa

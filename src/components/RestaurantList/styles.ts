@@ -7,6 +7,5 @@ export const Ul = styled.ul`
   grid-column-gap: 40px;
 
   ${TagContainer} {
-    
   }
 `;

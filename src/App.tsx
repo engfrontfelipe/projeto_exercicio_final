@@ -1,12 +1,18 @@
-import Rotas from "./routes";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import { GlobalCss } from "./style";
-import { BrowserRouter } from "react-router-dom";
+
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <GlobalCss />
-      <Rotas />
-    </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/restaurantes/:id" element={<Profile />} />
+      </Routes>
+    </Router>
   );
 }
 

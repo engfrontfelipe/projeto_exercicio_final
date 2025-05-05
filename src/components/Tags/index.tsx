@@ -2,7 +2,7 @@ import { TagContainer } from "./style";
 
 export type Props = {
   tag?: string;
-  tagTwo?: string; 
+  tagTwo?: string;
 };
 
 const Tag = ({ tag }: Props) => {

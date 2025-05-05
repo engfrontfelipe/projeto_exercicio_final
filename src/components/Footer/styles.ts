@@ -25,5 +25,5 @@ export const P = styled.p`
   width: 780px;
   text-align: center;
   margin: 0 auto;
-`
+`;
 export const ImgLogo = styled.img``;

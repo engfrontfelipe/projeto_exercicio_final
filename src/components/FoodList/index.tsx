@@ -1,75 +1,78 @@
-import ModelFood from "../../models/ModelFood";
-
-import food from "../../assets/images/margerita.png";
-import Food from "../Food";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Ul } from "./style";
+import Food from "../Food";
+import Modal from "../Modal"; // Certifique-se de que existe esse componente
 
-export const modelsFood: ModelFood[] = [
-  {
-    title: "Pizza Marguerita",
-    id: 1,
-    image: food,
-    description:
-      "A clássica Marguerita: molho de tomate suculento,mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
+type CardapioItem = {
+  foto?: string;
+  preco?: number;
+  id: number;
+  nome?: string;
+  descricao?: string;
+  porcao?: string;
+};
 
-  {
-    title: "Pizza Marguerita",
-    id: 2,
-    image: food,
-    description:
-      "A clássica Marguerita: molho de tomate suculento,mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-
-  {
-    title: "Pizza Marguerita",
-    id: 3,
-    image: food,
-    description:
-      "A clássica Marguerita: molho de tomate suculento,mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-
-  {
-    title: "Pizza Marguerita",
-    id: 4,
-    image: food,
-    description:
-      "A clássica Marguerita: molho de tomate suculento,mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-
-  {
-    title: "Pizza Marguerita",
-    id: 4,
-    image: food,
-    description:
-      "A clássica Marguerita: molho de tomate suculento,mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-
-  {
-    title: "Pizza Marguerita",
-    id: 4,
-    image: food,
-    description:
-      "A clássica Marguerita: molho de tomate suculento,mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!",
-  },
-];
+const fetchCardapio = async (restauranteId: string) => {
+  try {
+    const response = await fetch(
+      `https://fake-api-tau.vercel.app/api/efood/restaurantes/${restauranteId}`,
+    );
+    if (!response.ok) {
+      throw new Error("Erro ao buscar dados da API");
+    }
+    const data = await response.json();
+    return data.cardapio;
+  } catch (error) {
+    console.error("Erro ao buscar os dados:", error);
+    return [];
+  }
+};
 
 const FoodList = () => {
+  const { id } = useParams();
+  const [foods, setFoods] = useState<CardapioItem[]>([]);
+  const [selectedFood, setSelectedFood] = useState<CardapioItem | null>(null);
+
+  useEffect(() => {
+    const getFoodData = async () => {
+      if (id) {
+        const foodItems = await fetchCardapio(id);
+        setFoods(foodItems);
+      }
+    };
+
+    getFoodData();
+  }, [id]);
+
   return (
     <div className="container">
       <Ul>
-        {modelsFood.map((model) => (
-          <li>
+        {foods.map((food) => (
+          <li key={food.id}>
             <Food
-              key={model.id}
-              title={model.title}
-              description={model.description}
-              image={model.image}
+              title={food.nome ?? "Carregando"}
+              description={food.descricao ?? "Carregando"}
+              image={food.foto ?? ""}
+              onClick={() => setSelectedFood(food)}
             />
           </li>
         ))}
       </Ul>
+
+      {selectedFood && (
+        <Modal
+          isOpen={true}
+          onClose={() => setSelectedFood(null)}
+          title={selectedFood.nome}
+          text={selectedFood.descricao}
+          image={selectedFood.foto}
+          price={selectedFood.preco}
+          portion={selectedFood.porcao}
+        />
+      )}
     </div>
   );
 };
+
 export default FoodList;

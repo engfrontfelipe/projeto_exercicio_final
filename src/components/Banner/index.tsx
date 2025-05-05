@@ -1,15 +1,42 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import banner from "../../assets/images/imgBackgroundProfile.png";
 import { ImgBack, Subtitle, Title } from "./styles";
 
-const Banner = () => (
-  <>
+type Restaurante = {
+  titulo: string;
+  tipo: string;
+};
+
+const Banner = () => {
+  const { id } = useParams();
+  const [restaurante, setRestaurante] = useState<Restaurante | null>(null);
+
+  useEffect(() => {
+    const fetchRestaurante = async () => {
+      try {
+        const response = await fetch(
+          `https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`,
+        );
+        if (!response.ok) throw new Error("Erro ao buscar restaurante");
+        const data = await response.json();
+        setRestaurante({ titulo: data.titulo, tipo: data.tipo });
+      } catch (error) {
+        console.error("Erro ao carregar restaurante:", error);
+      }
+    };
+
+    if (id) fetchRestaurante();
+  }, [id]);
+
+  return (
     <ImgBack style={{ backgroundImage: `url(${banner})` }}>
       <div className="container">
-        <Subtitle>Italiana</Subtitle>
-        <Title>La Dolce Vita Trattoria</Title>
+        <Subtitle>{restaurante?.tipo}</Subtitle>
+        <Title>{restaurante?.titulo}</Title>
       </div>
     </ImgBack>
-  </>
-);
+  );
+};
 
 export default Banner;

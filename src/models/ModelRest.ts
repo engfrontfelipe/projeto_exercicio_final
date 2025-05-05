@@ -15,15 +15,14 @@ class ModelRest {
     tag: string,
     tagTwo: string,
     val: string,
-
   ) {
     this.title = title;
     this.text = text;
     this.image = image;
     this.id = id;
     this.tag = tag;
-    this.tagTwo = tagTwo
-    this.val = val
+    this.tagTwo = tagTwo;
+    this.val = val;
   }
 }
 
