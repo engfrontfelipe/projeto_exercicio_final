@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import banner from "../../assets/images/imgBackgroundProfile.png";
 import { ImgBack, Subtitle, Title } from "./styles";
 
 type Restaurante = {
