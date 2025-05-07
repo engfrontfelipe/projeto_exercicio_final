@@ -14,7 +14,7 @@ const Food = ({ title, description, image, onClick }: Props) => {
       <S.Img src={image} alt={title} />
       <S.Tittle>{title}</S.Tittle>
       <S.Description>{description}</S.Description>
-      <S.Button onClick={onClick}>Adicionar ao carrinho</S.Button>
+      <S.Button onClick={onClick}>Mais Detalhes</S.Button>
     </S.CardFood>
   );
 };

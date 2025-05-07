@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Ul } from "./style";
 import Food from "../Food";
-import Modal from "../Modal"; // Certifique-se de que existe esse componente
+import Modal from "../Modal";
 
 type CardapioItem = {
   foto?: string;
@@ -46,6 +46,7 @@ const FoodList = () => {
   }, [id]);
 
   return (
+    
     <div className="container">
       <Ul>
         {foods.map((food) => (
@@ -61,16 +62,18 @@ const FoodList = () => {
       </Ul>
 
       {selectedFood && (
-        <Modal
-          isOpen={true}
-          onClose={() => setSelectedFood(null)}
-          title={selectedFood.nome}
-          text={selectedFood.descricao}
-          image={selectedFood.foto}
-          price={selectedFood.preco}
-          portion={selectedFood.porcao}
-        />
-      )}
+  <Modal
+    isOpen={true}
+    onClose={() => setSelectedFood(null)}
+    id={selectedFood.id}
+    title={selectedFood.nome}
+    text={selectedFood.descricao}
+    image={selectedFood.foto}
+    price={selectedFood.preco}
+    portion={selectedFood.porcao}
+  />
+)}
+
     </div>
   );
 };
